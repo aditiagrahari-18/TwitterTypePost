@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TwitterTypePost</title>
+
+    <title> Twitter Type Post </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
+<body>
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% if false %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <!-- <%= debug(params) if Rails.env.development?%> -->
+  </div>
+</body>
+</html>
 
-  <body>
-    <!-- <% if !user_signed_in? %>
-      <p class= "Sign_in">
-      <%= link_to "Login", new_user_session_path %>
-    <% end %> -->
+  <!-- <body>
     <% if user_signed_in? %>
-
     <div class="buttons">
-      <button class="button">
-      <!-- <%= link_to "Login", new_post_path %> </button> -->
       <button class="button"><%= link_to("Logout", destroy_user_session_path, :method => :delete)  %></button>
     </div>
     <% end %>
-    <!-- <p class="notice"><%= notice %></p> -->
     <p class="alert"><%= alert %></p>
-
     <%= yield %>
   </body>
-</html>
+</html> -->
