@@ -1,11 +1,24 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron" id= "divhome">
-<h2>Twitter Type Post</h2>
-<p>
-This is the home page for the
-<a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-<br>
-<br>
-  <%= link_to "Sign up?", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
-</p>
-</div>
+  <% if user_signed_in? %>
+    <div class="row">
+    <aside class="col-md-4">
+    <section class="user_info">
+    <%= render 'shared/user_info' %>
+    </section>
+    <section class="micropost_form">
+    <%= render 'shared/micropost_form' %>
+    </section>
+    </aside>
+    </div>
+  <% else %>
+    <div class="center jumbotron" id= "divhome">
+    <h2>Twitter Type Post</h2>
+    <p>
+    This is the home page for the
+    <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    <br>
+    <br>
+      <%= link_to "Sign up?", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
+    </p>
+    </div>
+<% end %>

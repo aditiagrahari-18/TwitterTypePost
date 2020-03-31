@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/help'
   root 'static_pages#home'
-  # root 'posts#index'
-  resources :posts
-  devise_for :users
 
+  devise_for :users
+  resources :users
+  resources :microposts, only: [:create, :destroy]
   # devise_scope :users do
-  #
+  # root 'posts#index'
   #     # post '/users/sign_in' => 'posts#new'
   #     # get '/users/sign_in' => 'posts#new'
   #     # get '/users/sign_up' => 'posts#new'
