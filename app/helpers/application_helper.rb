@@ -7,4 +7,7 @@ module ApplicationHelper
       page_title + " | " + base_title #variable interpolation
     end
   end
+  def current_user?(user)
+    user && user == current_user
+  end
 end
