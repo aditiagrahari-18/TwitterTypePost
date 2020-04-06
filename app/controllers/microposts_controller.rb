@@ -1,6 +1,9 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy, :post_form]
   before_action :correct_user, only: :destroy
+  def post_form
+    @micropost = current_user.microposts.new
+  end
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
@@ -13,14 +16,15 @@ class MicropostsController < ApplicationController
     end
   end
   def destroy
-    @micropost.destroy
-    #@micropost.update(achieved: true)
-    flash[:success] = "Micropost achieved"
+    # @micropost.destroy
+    @micropost.update(archived: true)
+    flash[:success] = "Micropost archieved"
     redirect_to request.referrer || root_url
   end
+
   private
   def micropost_params
-    params.require(:micropost).permit(:content)
+    params.require(:micropost).permit(:content, :title)
   end
   def correct_user
     @micropost = current_user.microposts.find_by(id: params[:id])

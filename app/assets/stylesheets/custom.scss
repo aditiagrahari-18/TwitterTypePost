@@ -1,4 +1,4 @@
-@i@import "bootstrap-sprockets";
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 $gray-medium-light: #eaeaea;
@@ -22,6 +22,7 @@ border-box;
 }
 body {
 padding-top: 60px;
+
 }
 section {
 overflow: auto;
@@ -296,4 +297,23 @@ border: 0;
   border-width: medium;
   border:1px black;
   text-align: center;
+}
+#btnpost{
+  color: black;
+  width: 130px;
+  height: 40px;
+  /*add any other properties you want to style*/
+}
+#input_form{
+  margin: auto;
+  width: 80%;
+  // border: 1px solid green;
+  padding: 10px;
+  align-items: center;
+}
+.nav-link{
+  color:blue;
+  &:hover {
+    color: red;  
+  }
 }

@@ -1,7 +1,10 @@
 <% provide(:title, 'Log In') %>
-<h1>Log in</h1>
+<div class="row">
+  <aside class="col-md-12">
+    <div  id = "input_form">
+      <h1>Log in</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'  %>
 
@@ -16,6 +19,9 @@
     <% end %>
 
     <%= f.submit "Log in", class: "btn btn-primary" %>
-<% end %>
+      <% end %>
 
-<%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </aside>
+</div>

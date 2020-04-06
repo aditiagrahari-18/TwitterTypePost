@@ -1,28 +1,59 @@
 <% provide(:title, "Home") %>
   <% if user_signed_in? %>
     <div class="row">
-    <aside class="col-md-4">
-    <section class="user_info">
-    <%= render 'shared/user_info' %>
-    </section>
-    <section class="micropost_form">
-    <%= render 'shared/micropost_form' %>
-    </section>
-    </aside>
-    <div class="col-md-8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+      <aside class="col-md-3">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+      </aside>
+      <div class="col-md-9">
+        <div class = "container">
+        <div class ="row">
+          <div class = "col-md-2">
+            <h3>Posts <%= link_to "Create New Post", microposts_post_form_path, class: "btn  btn-success", id: "btnpost" %></h3>
+          </div>
+          <div class = "col-md-10">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">Archived</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+              </li>
+            </ul>
+             <div class="tab-content" id = "tabs">
+               <div id="home" class="container tab-pane active"><br>
+                 <h3></h3>
+               </div>
+               <div id="menu1" class="container tab-pane"><br>
+                 <%= render 'shared/archivedposts' %>
+               </div>
+               <div id="menu2" class="container tab-pane"><br>
+                 <h3>Menu 2</h3>
+               </div>
+             </div>
+        </div>
+        </div>
+      </div>
     </div>
+
+
+          <%= render 'shared/microposts' %>
+      </div>
+
     </div>
   <% else %>
     <div class="center jumbotron" id= "divhome">
-    <h2>Twitter Type Post</h2>
-    <p>
-    This is the home page for the
-    <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    <br>
-    <br>
-      <%= link_to "Sign up?", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
-    </p>
+      <h2>Twitter Type Post</h2>
+      <p>
+        This is the home page for the
+        <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      <br>
+      <br>
+        <%= link_to "Sign up?", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
+      </p>
     </div>
 <% end %>
