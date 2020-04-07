@@ -8,42 +8,39 @@
       </aside>
       <div class="col-md-9">
         <div class = "container">
-        <div class ="row">
-          <div class = "col-md-2">
-            <h3>Posts <%= link_to "Create New Post", microposts_post_form_path, class: "btn  btn-success", id: "btnpost" %></h3>
+          <div class ="row">
+            <div class = "col-md-2">
+              <h3>Posts <%= link_to "Create New Post", microposts_post_form_path, class: "btn  btn-success", id: "btnpost" %></h3>
+            </div>
+            <div class = "col-md-10">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu1">Archived</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+                </li>
+              </ul>
+               <div class="tab-content" id = "tabs">
+                 <div id="home" class="container tab-pane active"><br>
+                   <h3></h3>
+                 </div>
+                 <div id="menu1" class="container tab-pane"><br>
+                   <%= render 'shared/archivedposts' %>
+                 </div>
+                 <div id="menu2" class="container tab-pane"><br>
+                   <h3>Menu 2</h3>
+                 </div>
+              </div>
+            </div>
           </div>
-          <div class = "col-md-10">
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu1">Archived</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
-              </li>
-            </ul>
-             <div class="tab-content" id = "tabs">
-               <div id="home" class="container tab-pane active"><br>
-                 <h3></h3>
-               </div>
-               <div id="menu1" class="container tab-pane"><br>
-                 <%= render 'shared/archivedposts' %>
-               </div>
-               <div id="menu2" class="container tab-pane"><br>
-                 <h3>Menu 2</h3>
-               </div>
-             </div>
-        </div>
         </div>
       </div>
-    </div>
-
-
-          <%= render 'shared/microposts' %>
+        <%= render 'shared/microposts' %>
       </div>
-
     </div>
   <% else %>
     <div class="center jumbotron" id= "divhome">
