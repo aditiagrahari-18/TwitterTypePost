@@ -6,7 +6,9 @@ class StaticPagesController < ApplicationController
       @posts = current_user.microposts.where(archived: true).paginate(page: params[:page])
     end
   end
-
+  def allpost
+    @microposts = Micropost.all.paginate(page: params[:page])
+  end
   def help
   end
 end

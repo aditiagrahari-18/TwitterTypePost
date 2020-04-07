@@ -29,11 +29,11 @@
       <%= f.label :phone %><br />
       <%= f.text_field :phone, class: 'form-control' %>
 
-      <%= f.label :gender %><br />
-      <%= f.text_field :gender, class: 'form-control' %>
+      <%= f.label :gender %>
+      <%= f.select :gender, ["--Select--", "Female", "Male"], {}, class: 'form-control' %>
 
       <%= f.label :dob %><br />
-      <%= f.text_field :dob, class: 'form-control' %>
+      <%= f.text_field :dob, class: 'form-control', type: "date" %>
 
       <%= f.label :city %><br />
       <%= f.text_field :city, class: 'form-control' %>

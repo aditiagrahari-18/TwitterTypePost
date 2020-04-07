@@ -1,7 +1,7 @@
 <% if @microposts.any? %>
-<div class="microposts">
+<div class= "allpost">
   <%= render @microposts %>
 </div>
   <%= will_paginate @microposts,
-                  params: { controller: :static_pages, action: :home } %>
+                  params: { controller: :static_pages, action: :allpost } %>
 <% end %>
