@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_115005) do
+ActiveRecord::Schema.define(version: 2020_04_07_113955) do
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean "liked"
+    t.boolean "disliked"
+    t.integer "post_id"
+    t.integer "int"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"

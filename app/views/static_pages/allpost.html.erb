@@ -1,7 +1,20 @@
-<% if @microposts.any? %>
-<div class= "allpost">
-  <%= render @microposts %>
-</div>
-  <%= will_paginate @microposts,
-                  params: { controller: :static_pages, action: :allpost } %>
+<% if user_signed_in? %>
+  <% if @microposts.any? %>
+    <div class= "allpost">
+      <%= render @microposts %>
+    </div>
+      <%= will_paginate @microposts,
+                    params: { controller: :static_pages, action: :allpost } %>
+  <% end %>
+<% else %>
+  <div class="center jumbotron" id= "divhome">
+    <h3>Twitter Type Post</h3>
+    <p>
+      Inspired innovation that's changing the world.
+
+    <br>
+    <br>
+      <%= link_to "Sign up?", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
+    </p>
+  </div>
 <% end %>

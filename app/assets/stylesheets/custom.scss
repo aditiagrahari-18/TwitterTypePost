@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
 
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
@@ -314,6 +316,14 @@ border: 0;
 .nav-link{
   color:blue;
   &:hover {
-    color: red;  
+    color: red;
   }
+}
+#btnsignup{
+  color: white;
+  width: 130px;
+  height: 40px;
+}
+#divhome{
+  background-color: #fff
 }
