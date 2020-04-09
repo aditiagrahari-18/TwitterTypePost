@@ -12,28 +12,29 @@
             <div class = "col-md-2">
               <h3>Posts <%= link_to "Create New Post", microposts_post_form_path, class: "btn  btn-success", id: "btnpost" %></h3>
             </div>
-            <div class = "col-md-10">
-              <ul class="nav nav-tabs">
-                <li class="nav-item active">
-                  <a class="nav-link" data-toggle="tab" href="#home">Active</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#menu1">Archived</a>
-                </li>
-              </ul>
-               <div class="tab-content" id = "tabs">
-                 <div id="home" class="container tab-pane active"><br>
-                    <%= render 'shared/microposts' %>
-                 </div>
-                 <div id="menu1" class="container tab-pane"><br>
-                   <%= render 'shared/archivedposts' %>
-                 </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-
+    </div>
+  </br>
+    <div class="row">
+      <div class = "col-md-2">
+        <ul class="nav nav-tabs">
+          <li class="nav-item active">
+            <a class="nav-link" data-toggle="tab" href="#active">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#archived">Archived</a>
+          </li>
+        </ul>
+         <div class="tab-content" id = "tabs">
+           <div id="active" class="container tab-pane active"><br>
+              <%= render 'shared/microposts' %>
+           </div>
+           <div id="archived" class="container tab-pane"><br>
+             <%= render 'shared/archivedposts' %>
+           </div>
+        </div>
       </div>
     </div>
   <% else %>

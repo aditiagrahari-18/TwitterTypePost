@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
-  resources :microposts, only: [:create, :destroy]
+  resources :microposts, only: [:create, :destroy] do
+    post :like, :dislike
+  end
   # devise_scope :users do
   # root 'posts#index'
   #     # post '/users/sign_in' => 'posts#new'

@@ -1,24 +1,40 @@
-<div id= "micropost-<%= micropost.id %>">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <%= gravatar_for micropost.user %>
+<div class= "row" id= "micropost-<%= micropost.id %>" >
+  <div class="col-md-1">
+    <%= gravatar_for micropost.user %>
+  </div>
+  <div class="col-md-8">
         <span class="user">
           <%= link_to micropost.user.first_name, micropost.user %>
-        </span>
-        <span class="content">
-          <%= micropost.content %>
+          <%= link_to micropost.user.last_name, micropost.user %>
         </span>
         <span class="timestamp">
-          Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+              Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+        </span>
+
+        </br>
+        <span class="content">
+          <h4 class="title">
+          <%= micropost.title %>
+        </h4>
+        <%= micropost.content %>
+        </span>
+        </br>
+        <div class="btn-group" role="group" aria-label="...">
+          <p id = "like">Likes <%= micropost.likes.where(liked: true).count %>
+          <%= link_to '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>'.html_safe, micropost_like_path(micropost.id), method: :post %>
+
+          Dislikes
+          <%= micropost.likes.where(disliked: true).count %>
+          <%= link_to '<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>'.html_safe, micropost_dislike_path(micropost.id), method: :post %>
           <% if current_user == micropost.user %>
             <% if micropost.archived == false %>
                 <%= link_to "Archiev", micropost, method: :delete, data: { confirm: "You sure?" } %>
             <% end %>
           <% end %>
-        </span>
+        </p>
+        </div>
       </div>
-    </div>
-  </div>
+
+
 </div>
 </br>

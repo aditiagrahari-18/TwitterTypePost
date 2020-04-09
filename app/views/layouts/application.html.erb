@@ -20,18 +20,7 @@
     <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
-    <!-- <%= debug(params) if Rails.env.development?%> -->
+  
   </div>
 </body>
 </html>
-
-  <!-- <body>
-    <% if user_signed_in? %>
-    <div class="buttons">
-      <button class="button"><%= link_to("Logout", destroy_user_session_path, :method => :delete)  %></button>
-    </div>
-    <% end %>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
-</html> -->
