@@ -3,8 +3,8 @@ class CreateLikes < ActiveRecord::Migration[6.0]
     create_table :likes do |t|
       t.boolean :liked
       t.boolean :disliked
-      t.integer :post_id
-      t.integer :int
+      t.integer :micropost_id
+      t.integer :user_id
 
       t.timestamps
     end

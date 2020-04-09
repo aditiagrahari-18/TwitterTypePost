@@ -24,7 +24,6 @@ border-box;
 }
 body {
 padding-top: 60px;
-
 }
 section {
 overflow: auto;
@@ -254,8 +253,7 @@ border-bottom: 1px solid $gray-lighter;
 .microposts {
 list-style: none;
 padding: 0;
-li {
-padding: 10px 0;
+div {
 border-top: 1px solid #e8e8e8;
 }
 .user {
@@ -314,10 +312,16 @@ border: 0;
   align-items: center;
 }
 .nav-link{
-  color:blue;
-  &:hover {
-    color: red;
-  }
+  background-color: purple;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  background-color: blue;
+  color: red;
 }
 #btnsignup{
   color: white;
@@ -325,5 +329,30 @@ border: 0;
   height: 40px;
 }
 #divhome{
-  background-color: #fff
+  background-color: #fff;
+}
+.user{
+position: relative;
+ font-family:serif;
+ color: purple;
+ font-size: 16px;
+}
+.content{
+  padding-right: 10px;
+  text-align: justify;
+  width: 100%;
+}
+
+
+#allpost{
+position: relative;
+  padding: 2px;
+}
+#like{
+  position: relative;
+color: blue;
+font-size: 15px;
+}
+.userpost{
+width: 70%;
 }
