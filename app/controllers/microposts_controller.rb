@@ -30,9 +30,8 @@ class MicropostsController < ApplicationController
       flash[:success] = "Micropost created!"
       redirect_to static_pages_home_path
       # render 'users#show'
-    else
-      @microposts = current_user.microposts.paginate(page: params[:page])
-      render 'static_pages/home'
+    else      
+      render 'microposts/post_form'
     end
   end
   def destroy

@@ -5,96 +5,72 @@
 
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
--moz-box-sizing:border-box;
--webkit-box-sizing: border-box;
-box-sizing:
-border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:
+  border-box;
 }
 /* miscellaneous */
 .debug_dump {
-clear: both;
-float: left;
-width: 100%;
-margin-top: 45px;
-@include box_sizing;
--moz-box-sizing:border-box;
--webkit-box-sizing: border-box;
-box-sizing:
-border-box;
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:
+    border-box;
 }
 body {
-padding-top: 60px;
+  padding-top: 60px;
 }
 section {
-overflow: auto;
+  overflow: auto;
 }
 textarea {
-resize: vertical;
+  resize: vertical;
 }
 .center {
-text-align: center;
+  text-align: center;
 }
 .center h1 {
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 
 
 h1, h2, h3, h4, h5, h6 {
-line-height: 1;
+  line-height: 1;
 }
 h1 {
-font-size: 3em;
-letter-spacing: -2px;
-margin-bottom: 30px;
-text-align: center;
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 h2 {
-font-size: 1.2em;
-letter-spacing: -1px;
-margin-bottom: 30px;
-text-align: center;
-font-weight: normal;
-color: #777;
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
 }
 
 #logo {
-float: left;
-margin-right: 10px;
-font-size: 1.7em;
-color: #fff;
-text-transform: uppercase;
-letter-spacing: -1px;
-padding-top: 9px;
-font-weight: bold;
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
 }
 #logo:hover {
-color: #fff;
-text-decoration: none;
-}
-
-footer {
-margin-top: 45px;
-padding-top: 5px;
-border-top: 1px solid #eaeaea;
-color: #777;
-a {
-color: #555;
-}
-&:hover {
-color: #222;
-}
-}
-footer small {
-float: left;
-}
-footer ul {
-float: right;
-list-style: none;
-}
-footer ul li {
-float: left;
-margin-left: 15px;
+  color: #fff;
+  text-decoration: none;
 }
 
 
@@ -257,21 +233,25 @@ div {
 border-top: 1px solid #e8e8e8;
 }
 .user {
-margin-top: 5em;
-padding-top: 0;
+  margin-top: 5em;
+  padding-top: 0;
 }
 .content {
-display: block;
-margin-left: 60px;
+  overflow: auto;
+  padding-right: 10px;
+  display: block;
+  text-align: justify;
+  width: 100%;
+
 img {
 display: block;
 padding: 5px 0;
 }
 }
 .timestamp {
-color: $gray-light;
+color: black;
 display: block;
-margin-left: 60px;
+
 }
 .gravatar {
 float: left;
@@ -337,12 +317,6 @@ position: relative;
  color: purple;
  font-size: 16px;
 }
-.content{
-  padding-right: 10px;
-  text-align: justify;
-  width: 100%;
-}
-
 
 #allpost{
 position: relative;
