@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   get 'static_pages/home'
   get 'static_pages/help'
   root 'static_pages#allpost'
@@ -9,7 +10,10 @@ Rails.application.routes.draw do
   resources :users
   resources :microposts, only: [:create, :destroy] do
     post :like, :dislike
+    resources :comments
   end
+  # post 'comments/create'
+  # get 'comments/show'
   # devise_scope :users do
   # root 'posts#index'
   #     # post '/users/sign_in' => 'posts#new'

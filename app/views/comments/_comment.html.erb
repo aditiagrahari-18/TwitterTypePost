@@ -1,0 +1,12 @@
+<div class="row" id="comments-<%=comment.id %>" >
+  <div class="col-md-8">
+    <span class="user">
+      <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", comment.user %>
+
+    </span>
+        <span class="content">
+        <%= comment.body %>
+        </span>
+  </div>
+</div>
+</br>

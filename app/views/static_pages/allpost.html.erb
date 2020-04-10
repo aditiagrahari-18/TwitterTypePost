@@ -1,7 +1,14 @@
 <% if user_signed_in? %>
   <% if @microposts.any? %>
-    <div class= "allpost">
+    <div class= "row">
+      <div class="col-md-1">
+          </div>
+      <div class="col-md-6">
       <%= render @microposts %>
+      </div>
+      <div class="col-md-5">
+
+      </div>
     </div>
       <%= will_paginate @microposts,
                     params: { controller: :static_pages, action: :allpost } %>

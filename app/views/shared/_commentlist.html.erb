@@ -1,0 +1,6 @@
+
+<div class="microposts">
+  <%= render @comments %>
+</div>
+  <%= will_paginate @comments,
+                  params: { controller: :comments, action: :show } %>

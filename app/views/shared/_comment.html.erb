@@ -1,0 +1,6 @@
+<%= render micropost.comments %>
+ <%= form_with scope: :comment, url: micropost_comments_path(micropost_id: micropost.id), local: true do |form| %>
+     <%= form.label :comment%> <span>
+     <%= form.text_area :body, class: 'form-control' %>
+     <%= form.submit "Comment", class: "btn btn-success" %>
+ <% end %>

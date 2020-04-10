@@ -318,10 +318,7 @@ position: relative;
  font-size: 16px;
 }
 
-#allpost{
-position: relative;
-  padding: 2px;
-}
+
 #like{
   position: relative;
 color: blue;
@@ -329,4 +326,7 @@ font-size: 15px;
 }
 .userpost{
 width: 70%;
+}
+.timestamp{
+  font-size:12px;
 }
