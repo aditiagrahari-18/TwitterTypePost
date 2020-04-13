@@ -1,7 +1,5 @@
 <% if @microposts.any? %>
-
   <%= render @microposts %>
-
   <%= will_paginate @microposts,
                   params: { controller: :static_pages, action: :home } %>
 <% end %>

@@ -1,5 +1,5 @@
 <div class="row" id= "micropost-<%= micropost.id %>">
-  <div class="col-sm-6 col-md-6 col-lg-12">
+  <div class="col-sm-8 col-md-8 col-lg-12">
     <div class="thumbnail" style="background-color:purple;">
     <%= gravatar_for micropost.user %>
       <div class="caption">
@@ -16,8 +16,12 @@
               </h4>
               <div class="caption" style="text-align:justify">
                    <%= micropost.content %>
+
               </div>
-                <div class="btn-group" role="group" aria-label="...">
+              <div style="position:relative">
+                 <%= image_tag micropost.display_image if micropost.image.attached?%>
+              </div>
+                <div class="btn-group" role="group" aria-label="..." style="margin-top:5px">
                   <button type="button" class="btn btn-default"> <%= link_to '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>'.html_safe, micropost_like_path(micropost.id), method: :post %></button>
                   <button type="button" class="btn btn-default"><%= link_to '<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>'.html_safe, micropost_dislike_path(micropost.id), method: :post %></button>
                     <% if current_user == micropost.user %>

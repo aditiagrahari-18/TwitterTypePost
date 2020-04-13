@@ -26,11 +26,12 @@ class MicropostsController < ApplicationController
   end
   def create
     @micropost = current_user.microposts.build(micropost_params)
+    @micropost.image.attach(params[:micropost][:image])
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to static_pages_home_path
       # render 'users#show'
-    else      
+    else
       render 'microposts/post_form'
     end
   end
@@ -43,7 +44,7 @@ class MicropostsController < ApplicationController
 
   private
   def micropost_params
-    params.require(:micropost).permit(:content, :title, :status, :visibility)
+    params.require(:micropost).permit(:content, :title, :status, :visibility, :image)
   end
   def correct_user
     @micropost = current_user.microposts.find_by(id: params[:id])
