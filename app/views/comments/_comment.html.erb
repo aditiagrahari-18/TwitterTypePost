@@ -2,7 +2,7 @@
   <div class="col-md-8">
     <span class="user">
         <%= gravatar_for comment.user %>
-      <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", comment.user, style:"color:black"%>
+      <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", comment.user%>
     </span>
         <span class="content">
         <%= comment.body %>

@@ -2,8 +2,8 @@
   <div class="col-sm-8 col-md-8 col-lg-12">
     <div class="thumbnail" style="background-color:purple;">
     <%= gravatar_for micropost.user %>
-      <div class="caption">
-          <%= link_to "#{micropost.user.first_name} #{micropost.user.last_name}", micropost.user, style:"color:white" %>
+      <div class="caption" >
+          <%= link_to "#{micropost.user.first_name} #{micropost.user.last_name}", micropost.user, style:"color:white;padding-left:10px" %>
           <span class="timestamp" style="color:white">
                 Posted <%= time_ago_in_words(micropost.created_at) %> ago.
           </span>
@@ -16,21 +16,19 @@
               </h4>
               <div class="caption" style="text-align:justify">
                    <%= micropost.content %>
-
               </div>
               <div style="position:relative">
                  <%= image_tag micropost.display_image if micropost.image.attached?%>
               </div>
                 <div class="btn-group" role="group" aria-label="..." style="margin-top:5px">
-                  <button type="button" class="btn btn-default"> <%= link_to '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>'.html_safe, micropost_like_path(micropost.id), method: :post %></button>
-                  <button type="button" class="btn btn-default"><%= link_to '<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>'.html_safe, micropost_dislike_path(micropost.id), method: :post %></button>
-                    <% if current_user == micropost.user %>
-                     <% if micropost.archived == false %>
-                       <button type="button" class="btn btn-default">
-                         <%= link_to "Archiev", micropost, method: :delete, data: { confirm: "You sure?" } %>
-                       </button>
-                     <% end %>
-                   <% end %>
+                  <%= link_to '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>'.html_safe, micropost_like_path(micropost.id), method: :post %>
+                  <%= link_to '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>'.html_safe, micropost_dislike_path(micropost.id), method: :post %>
+                  <% if current_user == micropost.user %>
+                   <% if micropost.archived == false %>
+                    <%= link_to '<button type="button" class="btn btn-default">Archiev</button>'.html_safe, micropost, method: :delete, data: { confirm: "You sure?" }%>
+                    <% end %>
+                  <% end %>
+
                 </div>
                 <p id = "like">Likes <%= micropost.likes.where(liked: true).count %>
                   Dislikes
