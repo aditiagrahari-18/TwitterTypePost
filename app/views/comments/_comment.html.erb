@@ -1,8 +1,8 @@
 <div class="row" id="comments-<%=comment.id %>" >
   <div class="col-md-8">
     <span class="user">
-      <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", comment.user %>
-
+        <%= gravatar_for comment.user %>
+      <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", comment.user, style:"color:black"%>
     </span>
         <span class="content">
         <%= comment.body %>
