@@ -13,6 +13,9 @@
 
       <%= f.label :last_name %><br />
       <%= f.text_field :last_name, class: 'form-control' %>
+      
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
 
       <%= f.label :password %>
       <% if @minimum_password_length %>
@@ -23,20 +26,18 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'%>
 
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
 
-      <%= f.label :phone %><br />
+        <!-- <%= f.label :phone %><br />
       <%= f.text_field :phone, class: 'form-control' %>
 
       <%= f.label :gender %>
-      <%= f.select :gender, ["--Select--", "Female", "Male"], {}, class: 'form-control' %>
+      <%= f.select :gender, ["Select", "Female", "Male"], {}, class: 'form-control' %>
 
       <%= f.label :dob %><br />
       <%= f.text_field :dob, class: 'form-control', type: "date" %>
 
       <%= f.label :city %><br />
-      <%= f.text_field :city, class: 'form-control' %>
+      <%= f.text_field :city, class: 'form-control' %> -->
 
       <%= f.submit "Sign up", class: "btn btn-primary" %>
 
