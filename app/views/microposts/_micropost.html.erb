@@ -21,23 +21,18 @@
                  <%= image_tag micropost.display_image if micropost.image.attached?%>
               </div>
                 <div class="btn-group" role="group" aria-label="..." style="margin-top:5px">
-                  <%= link_to '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>'.html_safe, micropost_like_path(micropost.id), method: :post %>
-                  <%= link_to '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>'.html_safe, micropost_dislike_path(micropost.id), method: :post %>
+                  <%= link_to "<button type='button' class='btn btn-default'><span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> #{micropost.likes.where(liked: true).count}</button>".html_safe, micropost_like_path(micropost.id), method: :post %>
+                  <%= link_to "<button type='button' class='btn btn-default'><span class='glyphicon glyphicon-thumbs-down' aria-hidden='true'></span> #{micropost.likes.where(disliked: true).count}</button>".html_safe, micropost_dislike_path(micropost.id), method: :post %>
                   <% if current_user == micropost.user %>
                    <% if micropost.archived == false %>
                     <%= link_to '<button type="button" class="btn btn-default">Archiev</button>'.html_safe, micropost, method: :delete, data: { confirm: "You sure?" }%>
                     <% end %>
                   <% end %>
-
-                </div>
-                <p id = "like">Likes <%= micropost.likes.where(liked: true).count %>
-                  Dislikes
-                  <%= micropost.likes.where(disliked: true).count %>
+                </div>                
                 <span class="content">
                  <%= render partial: "shared/comment", locals: {micropost: micropost} %>
                 </span>
             </div>
-
           </div>
         </div>
     </div>

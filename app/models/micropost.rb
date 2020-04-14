@@ -8,7 +8,8 @@ class Micropost < ApplicationRecord
   validates :content, presence: true
   validates :image, content_type: { in: %w[image/jpeg image/gif image/png],
               message: "must be a valid image format" },
-              size:{ less_than: 7.megabytes,message:"should be less than 7MB" }
+              size:{ less_than: 7.megabytes,
+              message:"should be less than 7MB" }
   def display_image
     image.variant(resize_to_limit: [600, 600])
   end

@@ -9,6 +9,9 @@ class StaticPagesController < ApplicationController
   def allpost
     @microposts = Micropost.all.paginate(page: params[:page])
   end
+  def index
+    @users = User.paginate(page: params[:page])
+  end
   def help
   end
 end

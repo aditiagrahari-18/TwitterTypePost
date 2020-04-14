@@ -8,7 +8,8 @@
   <%= f.label :body %>
   <%= f.text_area :content, placeholder: "Compose new post...", class: 'form-control'%>
 
-  <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "btn btn-primary"  %>
+
+  <%= f.file_field :image, accept: "image/jpeg, image/gif, image/png", class: "btn btn-primary"  %>
 
   <%= f.label :visibility %>
   <%= f.select :visibility, ["Public", "Private", "Followers"], {}, class: 'form-control' %>
