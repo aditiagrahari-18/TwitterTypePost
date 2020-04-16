@@ -28,7 +28,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.image.attach(params[:micropost][:image])
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "New Post Created!"
       redirect_to static_pages_home_path
       # render 'users#show'
     else
@@ -38,7 +38,7 @@ class MicropostsController < ApplicationController
   def destroy
     # @micropost.destroy
     @micropost.update(archived: true)
-    flash[:success] = "Micropost archieved"
+    flash[:success] = "Post archieved"
     redirect_to request.referrer || root_url
   end
 
