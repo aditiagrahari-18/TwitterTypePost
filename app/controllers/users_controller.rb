@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-                                          # :following, :followers]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+                                           :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   def index
@@ -18,8 +18,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
-
 
   def create
     @user = User.new(user_params)
@@ -68,8 +66,7 @@ class UsersController < ApplicationController
     @title = "Following"
     @user = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
-    puts @user
-    puts "****************"
+    puts "************"
     puts @users
     render 'show_follow'
   end
@@ -77,8 +74,6 @@ class UsersController < ApplicationController
     @title = "Followers"
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
-    puts @user
-    puts @users
     render 'show_follow'
   end
 

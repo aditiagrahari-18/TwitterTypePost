@@ -1,0 +1,42 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= gravatar_for @user %>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span><b>Posts:</b> <%= @user.microposts.count %></span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+        <%= render @users %>
+        <%= will_paginate %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!--
+<% if @users.any? %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <%= link_to gravatar_for(current_user, size= 160), current_user %>
+      <div class="caption">
+          <div class="users follow">
+            <p><%= render @users %>
+            <%= pluralize(current_user.microposts.count, "post") %></p>
+          </div>
+          <%= will_paginate %>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %> -->

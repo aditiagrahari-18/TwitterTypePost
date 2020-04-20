@@ -6,7 +6,7 @@
           <%= link_to "#{micropost.user.first_name} #{micropost.user.last_name}", micropost.user, style:"color:white;padding-left:10px" %>
           <span class="timestamp" style="color:white">
                 Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-          </span>
+          </span>          
       </div>
         <div class="center row" style="position:relative;margin-top:15px">
           <div class="col-sm-6 col-md-6 col-lg-12">
@@ -28,7 +28,7 @@
                     <%= link_to '<button type="button" class="btn btn-default">Archiev</button>'.html_safe, micropost, method: :delete, data: { confirm: "You sure?" }%>
                     <% end %>
                   <% end %>
-                </div>                
+                </div>
                 <span class="content">
                  <%= render partial: "shared/comment", locals: {micropost: micropost} %>
                 </span>

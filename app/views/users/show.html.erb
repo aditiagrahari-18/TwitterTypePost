@@ -7,15 +7,23 @@
               <h4><%= @user.first_name %>
               <%= @user.last_name %></h4>
               <h4>Email:<%= @user.email %></h4>
+              <section class="stats">
+                <%= render 'shared/stats' %>
+              </section>
             </div>
           </div>
         </div>
       </div>
-<div class="row">
-  <% if @microposts.any? %>
-  <h4><strong>Total Posts : <%= @user.microposts.count %></strong></h4>
-    <%= render @microposts %>
-    <%= will_paginate @microposts,
-                    params: { controller: :static_pages, action: :home } %>
-  <% end %>
-</div>
+      <div class="row">
+        <div class="col-md-8">
+          <%= render 'follow_form' if user_signed_in? %>
+          <% if @microposts.any? %>
+            <h4><strong>Total Posts : <%= @user.microposts.count %></strong></h4>
+            <%= render @microposts %>
+            <%= will_paginate @microposts,
+                          params: { controller: :static_pages, action: :home } %>
+          <% else %>
+          <h3> Not Yet Any Post</h3>           
+          <% end %>
+        </div>
+      </div>

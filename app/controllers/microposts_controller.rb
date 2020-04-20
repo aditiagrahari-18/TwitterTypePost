@@ -25,6 +25,7 @@ class MicropostsController < ApplicationController
     # redirect_to root_path
   end
   def create
+  
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.image.attach(params[:micropost][:image])
     if @micropost.save

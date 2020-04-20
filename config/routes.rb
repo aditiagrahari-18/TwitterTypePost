@@ -7,11 +7,17 @@ Rails.application.routes.draw do
   post 'microposts/post_form'
 
   devise_for :users
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :microposts, only: [:create, :destroy] do
     post :like, :dislike
     resources :comments
   end
+
+  resources :relationships, only: [:create, :destroy]
   # post 'comments/create'
   # get 'comments/show'
   # devise_scope :users do
