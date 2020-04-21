@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'blocks/create'
+  get 'blocks/destroy'
   get 'comments/create'
   get 'static_pages/home'
   get 'static_pages/help'

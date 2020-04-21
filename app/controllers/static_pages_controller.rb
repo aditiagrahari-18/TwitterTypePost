@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
     end
   end
   def allpost
-    @microposts = Micropost.all.paginate(page: params[:page])
+      @microposts = Micropost.all.where(archived: false).paginate(page: params[:page])
   end
   def index
     @users = User.paginate(page: params[:page])
