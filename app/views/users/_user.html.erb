@@ -10,12 +10,17 @@
         </h4>
     </div>
     <div class="content">
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
+      <%# section class="stats">
+        <%= render 'shared/stats' </section> %>
+
       <p>
-        <span><b>Total Posts:</b> <%= @user.microposts.count %></span>
+        <span><b>Total Posts:</b> <%= user.microposts.count %></span>
       </p>
+      <% if blocked =  current_user.blocks.find_by(blocked: user.id) %>
+        <%= link_to "Unblock", user_block_path(user_id: user.id, id: blocked.id), method: :delete %>
+      <% else %>
+        <%= link_to "Block", user_blocks_path(user_id: user.id), method: :post %>
+      <% end %>
     </div>
       </div>
   </div>

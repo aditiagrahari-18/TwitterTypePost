@@ -13,7 +13,8 @@ class User < ApplicationRecord
                                 dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-
+  has_many :blocks, foreign_key: "blocked_by",
+                    dependent: :destroy
   # Follows a user.
   def follow(other_user)
     following << other_user
@@ -29,5 +30,5 @@ class User < ApplicationRecord
 
   def name
     first_name+ " " + last_name
-  end 
+  end
 end

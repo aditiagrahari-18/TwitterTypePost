@@ -1,0 +1,52 @@
+<div id="like_buttons_<%= micropost.id %>">
+<%= link_to "<button type='submit'
+class='btn btn-default glyphicon glyphicon-thumbs-up' id='btnlike'
+ onclick='disableButton(this)'  aria-hidden='true'>
+  #{micropost.likes.where(liked: true).count}</button>".html_safe,
+   micropost_like_path(micropost.id),  method: :post %>
+
+<%= link_to "<button type='submit'
+ class='btn btn-default glyphicon glyphicon-thumbs-down'
+    id='three' aria-hidden='true'>
+     #{micropost.likes.where(disliked: true).count}</button>".html_safe,
+      micropost_dislike_path(micropost.id), method: :post, remote: true %>
+</div>
+
+<script type="text/javascript">
+			function disableButton(btnlike){
+        // $("#btnlike").attr("disabled", true);
+				document.getElementById("btnlike").disabled = true;
+				console.log("Button has been disabled.");
+			}
+</script>
+
+
+
+
+
+<!-- <script>
+    $(document).ready(function () {
+
+        $("#two").submit(function (e) {
+            e.preventDefault();
+            $("#three").attr("disabled", true);
+            return true;
+
+        });
+    });
+</script> -->
+
+<!-- <script type="text/javascript">
+$(document).ready(function () {
+  $("#two").click(function(){
+      $("#two").attr('disabled', 'disabled');
+      // $("#three").removeAttr('disabled');
+
+  });
+  $("#three").click(function(){
+      $("#three").attr('disabled', 'disabled');
+      // $("#two").removeAttr('disabled');
+
+  });
+ });
+</script> -->

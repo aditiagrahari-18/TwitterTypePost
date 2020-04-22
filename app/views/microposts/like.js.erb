@@ -1,0 +1,1 @@
+$("#like_buttons_<%= @post.id %>").html("<%= escape_javascript(render(partial: 'microposts/like-dislike-form', locals: {micropost: @post}, :disabled => true)) %>");

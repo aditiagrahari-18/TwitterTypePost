@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'blocks/create'
-  get 'blocks/destroy'
+
   get 'comments/create'
   get 'static_pages/home'
   get 'static_pages/help'
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users do
+    resources :blocks, only: [:create, :destroy]
     member do
       get :following, :followers
     end
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
+
   # post 'comments/create'
   # get 'comments/show'
   # devise_scope :users do

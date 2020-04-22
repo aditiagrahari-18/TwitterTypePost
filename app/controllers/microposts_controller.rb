@@ -5,20 +5,27 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.new
   end
   def like
-    post = Micropost.find(params[:micropost_id])
-    post_like = post.likes.find_or_initialize_by(user: current_user)
+    @post = Micropost.find(params[:micropost_id])
+    post_like = @post.likes.find_or_initialize_by(user: current_user)
     post_like.liked = true
     post_like.disliked = false
     post_like.save
-    redirect_to root_path
+    respond_to do |format|
+    format.html { redirect_to root_path }
+    format.js
+    end
+
   end
   def dislike
-    post = Micropost.find(params[:micropost_id])
-    post_like = post.likes.find_or_initialize_by(user: current_user)
+    @post = Micropost.find(params[:micropost_id])
+    post_like = @post.likes.find_or_initialize_by(user: current_user)
     post_like.disliked = true
     post_like.liked = false
     post_like.save
-    redirect_to root_path
+    respond_to do |format|
+    format.html { redirect_to root_path }
+    format.js
+    end
 
     # post = Micropost.find(params[:micropost_id])
     # post.likes.create(user: current_user, disliked: true)
