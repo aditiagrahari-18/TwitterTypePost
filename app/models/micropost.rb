@@ -11,6 +11,6 @@ class Micropost < ApplicationRecord
               size:{ less_than: 7.megabytes,
               message:"should be less than 7MB" }
   def display_image
-    image.variant(resize_to_limit: [600, 600])
+    image.variant(resize_to_limit: [240, 240])
   end
 end

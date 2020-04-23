@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
     post_like = @post.likes.find_or_initialize_by(user: current_user)
     post_like.liked = true
     post_like.disliked = false
-    post_like.save
+    post_like.save  
     respond_to do |format|
     format.html { redirect_to root_path }
     format.js
@@ -22,6 +22,7 @@ class MicropostsController < ApplicationController
     post_like.disliked = true
     post_like.liked = false
     post_like.save
+    @post_liked = @post.likes.find_by(user: current_user)
     respond_to do |format|
     format.html { redirect_to root_path }
     format.js
